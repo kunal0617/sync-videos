@@ -100,7 +100,7 @@ html {
     background: rgba(0,0,0,0.5);
     cursor: pointer;
   }
-  
+   
   .progress__filled {
     width: 50%;
     background: #ffc600;

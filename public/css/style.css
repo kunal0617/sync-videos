@@ -130,7 +130,7 @@ a {
 	height: 40px;
 	flex: 1;
 }
-
+ 
 
 @media (max-width: 700px) {
 	.chat-main {
