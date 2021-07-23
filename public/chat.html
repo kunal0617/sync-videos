@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/video.css">
+  <title>ChatCord App</title>
+</head>
+<body>
+  <div class="chat-container">
+    <header class="chat-header">
+      <h1><i class="fas fa-smile"></i> Chat Box</h1>
+      <a href="index.html" class="btn">Leave Room</a>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Room Name:</h3>
+        <h2 id="room-name"></h2>
+        <h3><i class="fas fa-users"></i> Users</h3>
+        <ul id="users"></ul>
+      </div>
+      <div class="chat-messages"></div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+      </form>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; justify-content: space-evenly; padding-left: 25px; padding-right: 25px;">
+    
+    <div class="player">
+        <video class="player__video viewer" id="movie_player"></video>
+        <div class="player__controls">
+            <div class="progress">
+                <div class="progress__filled"></div>
+            </div>
+            <button class="player__button toggle" title="Play"><i class="fas fa-play"></i></button>
+            <button data-skip="-10" class="player__button"><i class="fas fa-backward"></i></button>
+            <button data-skip="10" class="player__button"><i class="fas fa-forward"></i></button>
+        </div>
+    </div>
+    <label for="video_location">video_location</label>
+        <select name="video_location" id="video_location" style="width: 200px;">
+            <option value="./652333414.mp4">Bug Bunny</option>
+            <option value="./Cruella.2021.1080p.WEBRip.x264.AAC5.1-[YTS.MX].mp4">Cruella</option>
+            <option value="./Escape.Room.2019.1080p.BluRay.x264-[YTS.AM].mp4">Escape Room</option>
+            <option value="./WhiteTiger.mkv">White Tiger</option>
+        </select>
+        <button type="button" class="btn btn-primary" onclick="setvideosrc()">Submit</button>
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js" integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js"></script>
+</body>
+<script>
+    function setvideosrc() {
+        let val = document.getElementById('video_location').value;
+        console.log(val);
+        document.getElementById('movie_player').src=val;
+    }
+</script>
+</html>
